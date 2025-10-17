@@ -49,6 +49,15 @@ const copy = {
     mission_title: 'Vores mission & værdier',
     mission_sub:
       'Vi bygger bro mellem tradition og innovation – med respekt for jorden og menneskene bag.',
+    // >>> НОВОЕ: длинный текст миссии по твоему тексту <<<
+    mission_long: [
+      'Det er ikke vigtigt, hvem du ser. Det vigtige er, hvem der ser dig.',
+      'Hver dag arbejder landmænd hårdt, men ofte bliver deres indsats usynlig. Produkterne er svære at finde, og udfordringerne er svære at få øje på. Agrihub ændrer dette.',
+      'Vi har skabt ikke bare en platform, men et fællesskab. Her mødes landmænd, virksomheder, forskere og politikere i et samlet rum. Her findes løsninger hurtigt. Her er ingen alene – hele økosystemet står bag hver enkelt.',
+      'Agrihub handler om gennemsigtighed og tillid. Forbrugeren kan se produktets oprindelse. Investoren kan se det reelle potentiale. Politikerne kan se, hvordan beslutninger påvirker lokalsamfund og landområder.',
+      'Vores mission er enkel: at styrke forbindelserne og forenkle systemet. Agrihub er landbrugets stemme, og den vil nu blive hørt.',
+      'Sammen kan vi ikke bare fremme bæredygtigt landbrug – vi kan skrive historie.'
+    ],
     values: [
       { t: 'Samarbejde', b: 'Vi forbinder aktører på tværs af værdikæden og skaber stærke relationer.' },
       { t: 'Gennemsigtighed', b: 'Åben information og fair spilleregler for alle.' },
@@ -96,6 +105,7 @@ const copy = {
       'Formen er ikke forbundet endnu. Tilføj NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables.',
   },
 
+  // (Опционально) EN-версия миссии — чтобы при переключении языка всё выглядело целостно
   en: {
     hero_kicker: 'AgriHub ApS',
     hero_title: 'A new chapter for Nordic agriculture',
@@ -127,6 +137,14 @@ const copy = {
     mission_title: 'Our mission & values',
     mission_sub:
       'Bridging tradition and innovation – with respect for the land and the people behind it.',
+    mission_long: [
+      'It is not important whom you see. What matters is who sees you.',
+      'Every day, farmers work hard, yet their efforts often go unseen. Products are hard to find, and challenges are hard to notice. Agrihub changes this.',
+      'We have created not just a platform, but a community. Here, farmers, companies, researchers and policymakers meet in one shared space. Solutions are found quickly. No one is alone – the whole ecosystem stands behind each individual.',
+      'Agrihub is about transparency and trust. Consumers can see the origin of products. Investors can see the real potential. Policymakers can see how decisions affect local communities and rural areas.',
+      'Our mission is simple: to strengthen connections and simplify the system. Agrihub is the voice of agriculture – and it will now be heard.',
+      'Together, we can not only advance sustainable agriculture – we can make history.'
+    ],
     values: [
       { t: 'Collaboration', b: 'Connecting actors across the value chain and building strong relationships.' },
       { t: 'Transparency', b: 'Open information and fair rules for everyone.' },
@@ -192,168 +210,3 @@ export default function Page() {
     fetch(endpoint as string, { method: 'POST', body: data })
       .then(() => {
         alert(t.alert_ok)
-        form.reset()
-      })
-      .catch(() => alert(t.alert_err))
-  }
-
-  return (
-    <main>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="container-xxl py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-sm uppercase tracking-widest opacity-70 mb-2">{t.hero_kicker}</p>
-            <h1 className="mb-4">{t.hero_title}</h1>
-            <p className="opacity-90 mb-8 max-w-2xl">{t.hero_body}</p>
-
-            <div className="flex gap-4">
-              {/* Кнопка к секции solution */}
-              <a
-                href="#solution"
-                className="btn-gold"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })
-                  history.replaceState(null, '', '#solution')
-                }}
-              >
-                {t.cta_1}
-              </a>
-
-              {/* Кнопка к секции contact */}
-              <a
-                href="#contact"
-                className="btn-gold"
-                style={{ background: 'linear-gradient(135deg,#1a3a2a,#274738)' }}
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                  history.replaceState(null, '', '#contact')
-                }}
-              >
-                {t.cta_2}
-              </a>
-            </div>
-          </div>
-
-          <div className="grid place-items-center">
-            <Image src="/logo.png" alt="AgriHub Logo" width={320} height={320} className="drop-shadow-2xl" />
-          </div>
-        </div>
-      </section>
-
-      {/* PROBLEM */}
-      <Section id="problem" title={t.problem_title} subtitle={t.problem_sub}>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="card">
-            <h3 className="mb-2">{t.problem_1_h}</h3>
-            <p className="opacity-80">{t.problem_1_b}</p>
-          </div>
-          <div className="card">
-            <h3 className="mb-2">{t.problem_2_h}</h3>
-            <p className="opacity-80">{t.problem_2_b}</p>
-          </div>
-        </div>
-      </Section>
-
-      {/* SOLUTION (включает Features) */}
-      <Section id="solution" title={t.solution_title} subtitle={t.solution_sub}>
-        <div className="grid md:grid-cols-3 gap-6">
-          {t.features.map((f) => (
-            <div key={f.t} className="card">
-              <h3 className="mb-2">{f.t}</h3>
-              <p className="opacity-80">{f.b}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* MISSION & VALUES */}
-      <Section id="mission" title={t.mission_title} subtitle={t.mission_sub}>
-        <div className="grid md:grid-cols-4 gap-6">
-          {t.values.map((v) => (
-            <div key={v.t} className="card">
-              <h3 className="mb-2">{v.t}</h3>
-              <p className="opacity-80">{v.b}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* MARKET */}
-      <Section id="market" title={t.market_title} subtitle={t.market_sub}>
-        <div className="grid md:grid-cols-4 gap-6">
-          {t.stats.map((s) => (
-            <div key={s.l} className="card text-center">
-              <div className="text-3xl font-bold mb-1">{s.v}</div>
-              <div className="opacity-70">{s.l}</div>
-            </div>
-          ))}
-        </div>
-        <div className="card mt-6">
-          <h3 className="mb-2">{t.market_card_h}</h3>
-          <p className="opacity-80">{t.market_card_b}</p>
-        </div>
-      </Section>
-
-      {/* TEAM */}
-      <Section id="team" title={t.team_title} subtitle={t.team_sub}>
-        <div className="grid md:grid-cols-2 gap-6">
-          {t.team.map((m) => (
-            <div key={m.n} className="card">
-              <h3 className="mb-1">{m.n}</h3>
-              <p className="opacity-80">{m.b}</p>
-            </div>
-          ))}
-        </div>
-        <div className="card">
-          <h3 className="mb-2">{t.partners_h}</h3>
-          <p className="opacity-80">{t.partners_b}</p>
-        </div>
-      </Section>
-
-      {/* CONTACT */}
-      <Section id="contact" title={t.contact_title} subtitle={t.contact_sub}>
-        <form onSubmit={handleContact} className="card grid gap-4">
-          <div className="grid md:grid-cols-2 gap-4">
-            <input
-              name="name"
-              required
-              placeholder={t.form_name}
-              className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-            />
-            <input
-              name="email"
-              required
-              type="email"
-              placeholder="Email"
-              className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-            />
-          </div>
-          <input
-            name="company"
-            placeholder={t.form_company}
-            className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-          />
-          <textarea
-            name="message"
-            placeholder={t.form_msg}
-            rows={4}
-            className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-          />
-          <button className="btn-gold w-fit">{t.form_send}</button>
-          {!process.env.NEXT_PUBLIC_CONTACT_ENDPOINT && (
-            <p className="text-xs opacity-60">
-              {/* Подсказка видна только если не настроен endpoint */}
-              {lang === 'da'
-                ? 'Tilføj kontaktformular: sæt NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables (f.eks. Formspree).'
-                : 'Add contact form: set NEXT_PUBLIC_CONTACT_ENDPOINT in Vercel → Settings → Environment Variables (e.g. Formspree).'}
-            </p>
-          )}
-        </form>
-      </Section>
-    </main>
-  )
-}
-
