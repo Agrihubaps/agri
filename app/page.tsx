@@ -1,8 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import Section from '@/components/Section'
-import { useLocale } from '@/components/LocaleProvider'
+import Section from '../components/Section'
+import { useLocale } from '../components/LocaleProvider'
 import type { FormEvent } from 'react'
 
 const base = {
@@ -14,7 +14,7 @@ const base = {
   cta_1: 'Oplev visionen',
   cta_2: 'Bliv en del af AgriHub',
 
-  // MISSION — отдельный блок сразу после Hero (перед Udfordringen)
+  // MISSION — отдельный блок сразу после Hero
   mission_title: 'Vores mission',
   mission_sub:
     'Vi bygger bro mellem tradition og innovation – med respekt for jorden og menneskene bag.',
@@ -27,7 +27,7 @@ const base = {
     'Sammen kan vi ikke bare fremme bæredygtigt landbrug – vi kan skrive historie.'
   ],
 
-  // UDFORDRINGEN — добавлено про голос Скандинавии и объединение фермеров
+  // UDFORDRINGEN
   problem_title: 'Udfordringen',
   problem_sub:
     'Landbruget står over for digital transformation. Vi gør den menneskelig, effektiv og værdiskabende. AgriHub bliver landbrugets stemme for hele Skandinavien – og kan blive de første, der samler alle skandinaviske landmænd.',
@@ -41,7 +41,7 @@ const base = {
   problem_3_b:
     'Vi vil være den samlede stemme for landbruget i Skandinavien og den første platform, der forener landmænd på tværs af regionen.',
 
-  // LØSNINGEN — добавлены локальный поиск, категории и сравнение
+  // LØSNINGЕН
   solution_title: 'Løsningen',
   solution_sub:
     'AgriHub er mere end en platform – det er et fællesskab og en bevægelse mod et smartere, grønnere landbrug.',
@@ -68,7 +68,7 @@ const base = {
   market_card_b:
     'Digitalisering af landbruget er ikke fremtiden – den sker nu. AgriHub forbinder de mennesker og data, der gør det muligt.',
 
-  // TEAM — большие карточки, «Partnere og støtte» удалён
+  // TEAM — большие карточки
   team_title: 'Menneskene bag AgriHub',
   team_sub: 'Erfaring, passion og et klart mål: at gøre landbruget mere forbundet og bæredygtigt.',
   team: [
@@ -99,7 +99,6 @@ const base = {
     'Formen er ikke forbundet endnu. Tilføj NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables.'
 }
 
-// Весь контент одинаков для da/en (всё на датском)
 const copy = { da: base, en: base }
 
 export default function Page() {
@@ -116,10 +115,7 @@ export default function Page() {
       return
     }
     fetch(endpoint as string, { method: 'POST', body: data })
-      .then(() => {
-        alert(t.alert_ok)
-        form.reset()
-      })
+      .then(() => { alert(t.alert_ok); form.reset() })
       .catch(() => alert(t.alert_err))
   }
 
@@ -132,52 +128,23 @@ export default function Page() {
             <p className="text-sm uppercase tracking-widest opacity-70 mb-2">{t.hero_kicker}</p>
             <h1 className="mb-4">{t.hero_title}</h1>
             <p className="opacity-90 mb-8 max-w-2xl">{t.hero_body}</p>
-
             <div className="flex gap-4">
-              <a
-                href="#solution"
-                className="btn-gold"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })
-                  history.replaceState(null, '', '#solution')
-                }}
-              >
-                {t.cta_1}
-              </a>
-              <a
-                href="#contact"
-                className="btn-gold"
-                style={{ background: 'linear-gradient(135deg,#1a3a2a,#274738)' }}
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                  history.replaceState(null, '', '#contact')
-                }}
-              >
-                {t.cta_2}
-              </a>
+              <a href="#solution" className="btn-gold" onClick={(e)=>{ e.preventDefault(); document.getElementById('solution')?.scrollIntoView({behavior:'smooth'}); history.replaceState(null,'','#solution') }}>{t.cta_1}</a>
+              <a href="#contact" className="btn-gold" style={{background:'linear-gradient(135deg,#1a3a2a,#274738)'}} onClick={(e)=>{ e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior:'smooth'}); history.replaceState(null,'','#contact') }}>{t.cta_2}</a>
             </div>
           </div>
-
           <div className="grid place-items-center">
             <Image src="/logo.png" alt="AgriHub Logo" width={320} height={320} className="drop-shadow-2xl" />
           </div>
         </div>
       </section>
 
-      {/* MISSION — отдельный блок ПЕРЕД “Udfordringen” */}
+      {/* MISSION — ПЕРЕД Udfordringen */}
       <Section id="mission" title={t.mission_title} subtitle={t.mission_sub}>
         <figure className="card space-y-4 md:space-y-5 p-8 md:p-10 border-l-4" style={{ borderLeftColor: '#c9a449' }}>
-          <blockquote className="text-2xl md:text-3xl font-semibold leading-snug">
-            “{t.mission_long[0]}”
-          </blockquote>
+          <blockquote className="text-2xl md:text-3xl font-semibold leading-snug">“{t.mission_long[0]}”</blockquote>
           <figcaption className="opacity-90">
-            {t.mission_long.slice(1).map((p, i) => (
-              <p key={i} className="leading-relaxed mb-3 last:mb-0">
-                {p}
-              </p>
-            ))}
+            {t.mission_long.slice(1).map((p, i) => (<p key={i} className="leading-relaxed mb-3 last:mb-0">{p}</p>))}
           </figcaption>
         </figure>
       </Section>
@@ -185,18 +152,9 @@ export default function Page() {
       {/* UDFORDRINGEN */}
       <Section id="problem" title={t.problem_title} subtitle={t.problem_sub}>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="card">
-            <h3 className="mb-2">{t.problem_1_h}</h3>
-            <p className="opacity-80">{t.problem_1_b}</p>
-          </div>
-          <div className="card">
-            <h3 className="mb-2">{t.problem_2_h}</h3>
-            <p className="opacity-80">{t.problem_2_b}</p>
-          </div>
-          <div className="card">
-            <h3 className="mb-2">{t.problem_3_h}</h3>
-            <p className="opacity-80">{t.problem_3_b}</p>
-          </div>
+          <div className="card"><h3 className="mb-2">{t.problem_1_h}</h3><p className="opacity-80">{t.problem_1_b}</p></div>
+          <div className="card"><h3 className="mb-2">{t.problem_2_h}</h3><p className="opacity-80">{t.problem_2_b}</p></div>
+          <div className="card"><h3 className="mb-2">{t.problem_3_h}</h3><p className="opacity-80">{t.problem_3_b}</p></div>
         </div>
       </Section>
 
@@ -215,36 +173,21 @@ export default function Page() {
       {/* MARKET */}
       <Section id="market" title={t.market_title} subtitle={t.market_sub}>
         <div className="grid md:grid-cols-4 gap-6">
-          {t.stats.map((s) => (
-            <div key={s.l} className="card text-center">
-              <div className="text-3xl font-bold mb-1">{s.v}</div>
-              <div className="opacity-70">{s.l}</div>
-            </div>
-          ))}
+          {t.stats.map((s) => (<div key={s.l} className="card text-center"><div className="text-3xl font-bold mb-1">{s.v}</div><div className="opacity-70">{s.l}</div></div>))}
         </div>
-        <div className="card mt-6">
-          <h3 className="mb-2">{t.market_card_h}</h3>
-          <p className="opacity-80">{t.market_card_b}</p>
-        </div>
+        <div className="card mt-6"><h3 className="mb-2">{t.market_card_h}</h3><p className="opacity-80">{t.market_card_b}</p></div>
       </Section>
 
-      {/* TEAM — большие карточки, текст точно помещается */}
+      {/* TEAM — большие карточки */}
       <Section id="team" title={t.team_title} subtitle={t.team_sub}>
         <div className="grid gap-6 lg:grid-cols-2">
-          {/* Rune */}
           <article className="card p-8 md:p-10 overflow-visible">
             <h3 className="text-xl md:text-2xl font-semibold mb-4">{t.team[0].n}</h3>
-            <p className="text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
-              {t.team[0].b}
-            </p>
+            <p className="text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">{t.team[0].b}</p>
           </article>
-
-          {/* Denis */}
           <article className="card p-8 md:p-10 overflow-visible">
             <h3 className="text-xl md:text-2xl font-semibold mb-4">{t.team[1].n}</h3>
-            <p className="text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
-              {t.team[1].b}
-            </p>
+            <p className="text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">{t.team[1].b}</p>
           </article>
         </div>
       </Section>
@@ -253,37 +196,13 @@ export default function Page() {
       <Section id="contact" title={t.contact_title} subtitle={t.contact_sub}>
         <form onSubmit={handleContact} className="card grid gap-4">
           <div className="grid md:grid-cols-2 gap-4">
-            <input
-              name="name"
-              required
-              placeholder={t.form_name}
-              className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-            />
-            <input
-              name="email"
-              required
-              type="email"
-              placeholder="Email"
-              className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-            />
+            <input name="name" required placeholder={t.form_name} className="rounded-xl bg-white/10 px-4 py-3 outline-none" />
+            <input name="email" required type="email" placeholder="Email" className="rounded-xl bg-white/10 px-4 py-3 outline-none" />
           </div>
-          <input
-            name="company"
-            placeholder={t.form_company}
-            className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-          />
-          <textarea
-            name="message"
-            placeholder={t.form_msg}
-            rows={4}
-            className="rounded-xl bg-white/10 px-4 py-3 outline-none"
-          />
+          <input name="company" placeholder={t.form_company} className="rounded-xl bg-white/10 px-4 py-3 outline-none" />
+          <textarea name="message" placeholder={t.form_msg} rows={4} className="rounded-xl bg-white/10 px-4 py-3 outline-none" />
           <button className="btn-gold w-fit">{t.form_send}</button>
-          {!process.env.NEXT_PUBLIC_CONTACT_ENDPOINT && (
-            <p className="text-xs opacity-60">
-              Tilføj kontaktformular: sæt NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables (f.eks. Formspree).
-            </p>
-          )}
+          {!process.env.NEXT_PUBLIC_CONTACT_ENDPOINT && (<p className="text-xs opacity-60">Tilføj kontaktformular: sæt NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables (f.eks. Formspree).</p>)}
         </form>
       </Section>
     </main>
