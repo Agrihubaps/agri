@@ -14,7 +14,20 @@ const base = {
   cta_1: 'Oplev visionen',
   cta_2: 'Bliv en del af AgriHub',
 
-  // UDFORDRINGEN
+  // MISSION — отдельный блок сразу после Hero
+  mission_title: 'Vores mission',
+  mission_sub:
+    'Vi bygger bro mellem tradition og innovation – med respekt for jorden og menneskene bag.',
+  mission_long: [
+    'Det er ikke vigtigt, hvem du ser. Det vigtige er, hvem der ser dig.',
+    'Hver dag arbejder landmænd hårdt, men ofte bliver deres indsats usynlig. Produkterne er svære at finde, og udfordringerne er svære at få øje på. Agrihub ændrer dette.',
+    'Vi har skabt ikke bare en platform, men et fællesskab. Her mødes landmænd, virksomheder, forskere og politikere i et samlet rum. Her findes løsninger hurtigt. Her er ingen alene – hele økosystemet står bag hver enkelt.',
+    'Agrihub handler om gennemsigtighed og tillid. Forbrugeren kan se produktets oprindelse. Investoren kan se det reelle potentiale. Politikerne kan se, hvordan beslutninger påvirker lokalsamfund og landområder.',
+    'Vores mission er enkel: at styrke forbindelserne og forenkle systemet. Agrihub er landbrugets stemme, og den vil nu blive hørt.',
+    'Sammen kan vi ikke bare fremme bæredygtigt landbrug – vi kan skrive historie.'
+  ],
+
+  // UDFORDRINGEN — добавлено про голос Скандинавии и объединение фермеров
   problem_title: 'Udfordringen',
   problem_sub:
     'Landbruget står over for digital transformation. Vi gør den menneskelig, effektiv og værdiskabende. AgriHub bliver landbrugets stemme for hele Skandinavien – og kan blive de første, der samler alle skandinaviske landmænd.',
@@ -28,7 +41,7 @@ const base = {
   problem_3_b:
     'Vi vil være den samlede stemme for landbruget i Skandinavien og den første platform, der forener landmænd på tværs af regionen.',
 
-  // LØSNINGEN (добавлены новые пункты)
+  // LØSNINGEN — добавлены локальный поиск, категории и сравнение
   solution_title: 'Løsningen',
   solution_sub:
     'AgriHub er mere end en platform – det er et fællesskab og en bevægelse mod et smartere, grønnere landbrug.',
@@ -37,21 +50,9 @@ const base = {
     { t: 'HR & Rekruttering', b: 'Skab forbindelser mellem talent og landbrug. Find specialister og partnere.' },
     { t: 'Community & Videndeling', b: 'Et stærkt fællesskab for alle i landbruget. Samarbejde, innovation og tillid.' },
     { t: 'Data & Indsigt', b: 'Digitalisering af landbruget med viden, analyser og bæredygtige løsninger.' },
-    // новые фичи по ТЗ:
-    { t: 'Lokal søgning', b: 'Find produkter, service og partnere i nærheden via lokation, kort og filtre.' },
+    { t: 'Lokal søgning', b: 'Find produkter, service og partnere i nærheden via lokation, kort og præcise filtre.' },
     { t: 'Dyrlæger & byggefirmaer', b: 'Særlige kategorier for dyrlæger og byggefirmaer – hurtig adgang til de rette fagfolk.' },
-    { t: 'Sammenligning', b: 'Sammenlign specifikationer, vilkår og bedømmelser for de fleste varer og ydelser.' },
-  ],
-
-  // MISSION — весь блок ценностей заменён на вдохновляющий текст миссии
-  mission_title: 'Vores mission',
-  mission_sub:
-    ''Det er ikke vigtigt, hvem du ser. Det vigtige er, hvem der ser dig.',
-    'Hver dag arbejder landmænd hårdt, men ofte bliver deres indsats usynlig. Produkterne er svære at finde, og udfordringerne er svære at få øje på. Agrihub ændrer dette.',
-    'Vi har skabt ikke bare en platform, men et fællesskab. Her mødes landmænd, virksomheder, forskere og politikere i et samlet rum. Her findes løsninger hurtigt. Her er ingen alene – hele økosystemet står bag hver enkelt.',
-    'Agrihub handler om gennemsigtighed og tillid. Forbrugeren kan se produktets oprindelse. Investoren kan se det reelle potentiale. Politikerne kan se, hvordan beslutninger påvirker lokalsamfund og landområder.',
-    'Vores mission er enkel: at styrke forbindelserne og forenkle systemet. Agrihub er landbrugets stemme, og den vil nu blive hørt.',
-    'Sammen kan vi ikke bare fremme bæredygtigt landbrug – vi kan skrive historie.'',
+    { t: 'Sammenligning', b: 'Sammenlign specifikationer, vilkår og bedømmelser for de fleste varer og ydelser.' }
   ],
 
   // MARKET
@@ -61,23 +62,27 @@ const base = {
     { l: 'Danmark', v: '≈ 33.000 gårde' },
     { l: 'Sverige', v: '≈ 59.000 gårde' },
     { l: 'Norge', v: '≈ 10.000 gårde' },
-    { l: 'Tyskland', v: '≈ 255.000 gårde' },
+    { l: 'Tyskland', v: '≈ 255.000 gårde' }
   ],
   market_card_h: 'Et voksende digitalt potentiale',
   market_card_b:
     'Digitalisering af landbruget er ikke fremtiden – den sker nu. AgriHub forbinder de mennesker og data, der gør det muligt.',
 
-  // TEAM — обновлено (без “Partnere og støtte”)
+  // TEAM — обновлённые большие карточки, партнёрский блок удалён
   team_title: 'Menneskene bag AgriHub',
   team_sub: 'Erfaring, passion og et klart mål: at gøre landbruget mere forbundet og bæredygtigt.',
   team: [
     {
       n: 'Rune Larssen Elsborg – Administrerende Direktør',
-      b: 'Rune er grundlægger af AgriHub ApS og indgår som medstifter og har fokus på daglig drift, forretningsudvikling og partnerskaber. Sidste 6 års erfaring i en stor agrovirksomhed med ansvar for tekniske projekter på tværs af Skandinavien og omfattende kommunikation inden for landbrugssektoren. Praktisk erfaring med ledelse af store teams, baseret på 20 års erfaring i lederstillinger på olieplatforme.'
+      b:
+        'Rune er grundlægger af AgriHub ApS og indgår som medstifter og har fokus på daglig drift, forretningsudvikling og partnerskaber.\n' +
+        'Sidste 6 års erfaring i en stor agrovirksomhed med ansvar for tekniske projekter på tværs af Skandinavien og omfattende kommunikation inden for landbrugssektoren. Praktisk erfaring med ledelse af store teams, baseret på 20 års erfaring i lederstillinger på olieplatforme.'
     },
     {
       n: 'Denis Antoshyn – Direktør',
-      b: 'Denis er grundlægger af AgriHub ApS og har det overordnede ansvar for virksomhedens strategi, ledelse og udvikling. Over 15 års erfaring i landbrugssektoren med en universitetsuddannelse inden for landbrug og fire års arbejde i en agrovirksomhed specialiseret i landbrugsudstyr.'
+      b:
+        'Denis er grundlægger af AgriHub ApS og har det overordnede ansvar for virksomhedens strategi, ledelse og udvikling.\n' +
+        'Over 15 års erfaring i landbrugssektoren med en universitetsuddannelse inden for landbrug og fire års arbejde i en agrovirksomhed specialiseret i landbrugsudstyr.'
     }
   ],
 
@@ -91,10 +96,10 @@ const base = {
   alert_ok: 'Tak! Vi kontakter dig snart.',
   alert_err: 'Der opstod en fejl. Prøv igen senere.',
   alert_no_endpoint:
-    'Formen er ikke forbundet endnu. Tilføj NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables.',
+    'Formen er ikke forbundet endnu. Tilføj NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables.'
 }
 
-// Оставляем двуязычный переключатель, но контент одинаковый (датский)
+// Весь контент одинаков для da/en (всё на датском)
 const copy = { da: base, en: base }
 
 export default function Page() {
@@ -161,6 +166,22 @@ export default function Page() {
         </div>
       </section>
 
+      {/* MISSION — отдельный блок ПЕРЕД “Udfordringen” */}
+      <Section id="mission" title={t.mission_title} subtitle={t.mission_sub}>
+        <figure className="card space-y-4 md:space-y-5 p-8 md:p-10 border-l-4" style={{ borderLeftColor: '#c9a449' }}>
+          <blockquote className="text-2xl md:text-3xl font-semibold leading-snug">
+            “{t.mission_long[0]}”
+          </blockquote>
+          <figcaption className="opacity-90">
+            {t.mission_long.slice(1).map((p, i) => (
+              <p key={i} className="leading-relaxed mb-3 last:mb-0">
+                {p}
+              </p>
+            ))}
+          </figcaption>
+        </figure>
+      </Section>
+
       {/* UDFORDRINGEN */}
       <Section id="problem" title={t.problem_title} subtitle={t.problem_sub}>
         <div className="grid md:grid-cols-3 gap-6">
@@ -191,24 +212,10 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* MISSION — выразительный блок */}
-      <Section id="mission" title={t.mission_title} subtitle={t.mission_sub}>
-        <figure className="card space-y-4 md:space-y-5 p-8 md:p-10 border-l-4" style={{ borderLeftColor: '#c9a449' }}>
-          <blockquote className="text-2xl md:text-3xl font-semibold leading-snug">
-            “{t.mission_long[0]}”
-          </blockquote>
-          <figcaption className="opacity-80">
-            {t.mission_long.slice(1).map((p, i) => (
-              <p key={i} className="leading-relaxed mb-3 last:mb-0">{p}</p>
-            ))}
-          </figcaption>
-        </figure>
-      </Section>
-
       {/* MARKET */}
       <Section id="market" title={t.market_title} subtitle={t.market_sub}>
         <div className="grid md:grid-cols-4 gap-6">
-          {t.stats.map((s: { l: string; v: string }) => (
+          {t.stats.map((s) => (
             <div key={s.l} className="card text-center">
               <div className="text-3xl font-bold mb-1">{s.v}</div>
               <div className="opacity-70">{s.l}</div>
@@ -221,15 +228,24 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* TEAM — без “Partnere og støtte” */}
+      {/* TEAM — большие удобочитаемые карточки, партнёрский блок удалён */}
       <Section id="team" title={t.team_title} subtitle={t.team_sub}>
-        <div className="grid md:grid-cols-2 gap-6">
-          {t.team.map((m: { n: string; b: string }) => (
-            <div key={m.n} className="card">
-              <h3 className="mb-1">{m.n}</h3>
-              <p className="opacity-80 whitespace-pre-line">{m.b}</p>
-            </div>
-          ))}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Rune */}
+          <article className="card p-8 md:p-10 overflow-visible">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4">{t.team[0].n}</h3>
+            <p className="space-y-4 text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
+              {t.team[0].b}
+            </p>
+          </article>
+
+          {/* Denis */}
+          <article className="card p-8 md:p-10 overflow-visible">
+            <h3 className="text-xl md:text-2xl font-semibold mb-4">{t.team[1].n}</h3>
+            <p className="space-y-4 text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
+              {t.team[1].b}
+            </p>
+          </article>
         </div>
       </Section>
 
