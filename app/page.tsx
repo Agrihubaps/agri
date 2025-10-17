@@ -14,7 +14,7 @@ const base = {
   cta_1: 'Oplev visionen',
   cta_2: 'Bliv en del af AgriHub',
 
-  // MISSION — отдельный блок сразу после Hero
+  // MISSION — отдельный блок сразу после Hero (перед Udfordringen)
   mission_title: 'Vores mission',
   mission_sub:
     'Vi bygger bro mellem tradition og innovation – med respekt for jorden og menneskene bag.',
@@ -68,7 +68,7 @@ const base = {
   market_card_b:
     'Digitalisering af landbruget er ikke fremtiden – den sker nu. AgriHub forbinder de mennesker og data, der gør det muligt.',
 
-  // TEAM — обновлённые большие карточки, партнёрский блок удалён
+  // TEAM — большие карточки, «Partnere og støtte» удалён
   team_title: 'Menneskene bag AgriHub',
   team_sub: 'Erfaring, passion og et klart mål: at gøre landbruget mere forbundet og bæredygtigt.',
   team: [
@@ -228,13 +228,13 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* TEAM — большие удобочитаемые карточки, партнёрский блок удалён */}
+      {/* TEAM — большие карточки, текст точно помещается */}
       <Section id="team" title={t.team_title} subtitle={t.team_sub}>
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Rune */}
           <article className="card p-8 md:p-10 overflow-visible">
             <h3 className="text-xl md:text-2xl font-semibold mb-4">{t.team[0].n}</h3>
-            <p className="space-y-4 text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
+            <p className="text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
               {t.team[0].b}
             </p>
           </article>
@@ -242,7 +242,7 @@ export default function Page() {
           {/* Denis */}
           <article className="card p-8 md:p-10 overflow-visible">
             <h3 className="text-xl md:text-2xl font-semibold mb-4">{t.team[1].n}</h3>
-            <p className="space-y-4 text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
+            <p className="text-base md:text-lg leading-relaxed opacity-90 whitespace-pre-line">
               {t.team[1].b}
             </p>
           </article>
