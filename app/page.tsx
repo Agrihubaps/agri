@@ -21,14 +21,14 @@ const base = {
   problem_1_h: 'Fragmenterede løsninger og spildt tid',
   problem_1_b:
     'Landmænd og virksomheder jonglerer mellem platforme, kontakter og manuelle processer – og mister fokus på deres kerne: jorden og produktionen.',
-  problem_2_h: 'Behov for et samlet økosystem',
+  problem_2_h: 'Behov for ét samlet økosystem',
   problem_2_b:
     'Branchen har brug for et sted, hvor samarbejde, tillid og innovation kan vokse naturligt. Det er her, AgriHub kommer ind.',
   problem_3_h: 'En fælles stemme for Norden',
   problem_3_b:
     'Vi vil være den samlede stemme for landbruget i Skandinavien og den første platform, der forener landmænd på tværs af regionen.',
 
-  // LØSNINGEN
+  // LØSNINGEN (добавлены новые пункты)
   solution_title: 'Løsningen',
   solution_sub:
     'AgriHub er mere end en platform – det er et fællesskab og en bevægelse mod et smartere, grønnere landbrug.',
@@ -37,14 +37,13 @@ const base = {
     { t: 'HR & Rekruttering', b: 'Skab forbindelser mellem talent og landbrug. Find specialister og partnere.' },
     { t: 'Community & Videndeling', b: 'Et stærkt fællesskab for alle i landbruget. Samarbejde, innovation og tillid.' },
     { t: 'Data & Indsigt', b: 'Digitalisering af landbruget med viden, analyser og bæredygtige løsninger.' },
-
-    // >>> НОВОЕ ПО ТЗ:
-    { t: 'Lokal søgning', b: 'Find varer, service og partnere i nærheden via kort og filtre efter region/kommune.' },
-    { t: 'Dyrlæger & byggefirmaer', b: 'Særlige kategorier for dyrlæger og byggefirmaer, så du hurtigt finder de rette fagfolk.' },
-    { t: 'Sammenligning', b: 'Sammenlign specifikationer, vilkår og bedømmelser for de fleste produkter og ydelser.' },
+    // новые фичи по ТЗ:
+    { t: 'Lokal søgning', b: 'Find produkter, service og partnere i nærheden via lokation, kort og filtre.' },
+    { t: 'Dyrlæger & byggefirmaer', b: 'Særlige kategorier for dyrlæger og byggefirmaer – hurtig adgang til de rette fagfolk.' },
+    { t: 'Sammenligning', b: 'Sammenlign specifikationer, vilkår og bedømmelser for de fleste varer og ydelser.' },
   ],
 
-  // MISSION (вместо “værdier” — сплошной вдохновляющий блок)
+  // MISSION — весь блок ценностей заменён на вдохновляющий текст миссии
   mission_title: 'Vores mission',
   mission_sub:
     'Vi bygger bro mellem tradition og innovation – med respekt for jorden og menneskene bag.',
@@ -70,7 +69,7 @@ const base = {
   market_card_b:
     'Digitalisering af landbruget er ikke fremtiden – den sker nu. AgriHub forbinder de mennesker og data, der gør det muligt.',
 
-  // TEAM (обновлено) — без «Partnere og støtte»
+  // TEAM — обновлено (без “Partnere og støtte”)
   team_title: 'Menneskene bag AgriHub',
   team_sub: 'Erfaring, passion og et klart mål: at gøre landbruget mere forbundet og bæredygtigt.',
   team: [
@@ -97,7 +96,7 @@ const base = {
     'Formen er ikke forbundet endnu. Tilføj NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables.',
 }
 
-// Чтобы даже при переключении языка весь сайт был на датском:
+// Оставляем двуязычный переключатель, но контент одинаковый (датский)
 const copy = { da: base, en: base }
 
 export default function Page() {
@@ -194,13 +193,18 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* MISSION — большой вдохновляющий блок */}
+      {/* MISSION — выразительный блок */}
       <Section id="mission" title={t.mission_title} subtitle={t.mission_sub}>
-        <div className="card space-y-4 md:space-y-5 p-8 md:p-10 border-l-4" style={{borderLeftColor:'#c9a449'}}>
-          {t.mission_long.map((p: string, i: number) => (
-            <p key={i} className="opacity-90 leading-relaxed">{p}</p>
-          ))}
-        </div>
+        <figure className="card space-y-4 md:space-y-5 p-8 md:p-10 border-l-4" style={{ borderLeftColor: '#c9a449' }}>
+          <blockquote className="text-2xl md:text-3xl font-semibold leading-snug">
+            “{t.mission_long[0]}”
+          </blockquote>
+          <figcaption className="opacity-80">
+            {t.mission_long.slice(1).map((p, i) => (
+              <p key={i} className="leading-relaxed mb-3 last:mb-0">{p}</p>
+            ))}
+          </figcaption>
+        </figure>
       </Section>
 
       {/* MARKET */}
@@ -219,7 +223,7 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* TEAM — без блока “Partnere og støtte” */}
+      {/* TEAM — без “Partnere og støtte” */}
       <Section id="team" title={t.team_title} subtitle={t.team_sub}>
         <div className="grid md:grid-cols-2 gap-6">
           {t.team.map((m: { n: string; b: string }) => (
@@ -271,4 +275,3 @@ export default function Page() {
     </main>
   )
 }
-
