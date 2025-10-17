@@ -46,14 +46,12 @@ const base = {
   // MISSION — весь блок ценностей заменён на вдохновляющий текст миссии
   mission_title: 'Vores mission',
   mission_sub:
-    'Vi bygger bro mellem tradition og innovation – med respekt for jorden og menneskene bag.',
-  mission_long: [
-    'Det er ikke vigtigt, hvem du ser. Det vigtige er, hvem der ser dig.',
+    ''Det er ikke vigtigt, hvem du ser. Det vigtige er, hvem der ser dig.',
     'Hver dag arbejder landmænd hårdt, men ofte bliver deres indsats usynlig. Produkterne er svære at finde, og udfordringerne er svære at få øje på. Agrihub ændrer dette.',
     'Vi har skabt ikke bare en platform, men et fællesskab. Her mødes landmænd, virksomheder, forskere og politikere i et samlet rum. Her findes løsninger hurtigt. Her er ingen alene – hele økosystemet står bag hver enkelt.',
     'Agrihub handler om gennemsigtighed og tillid. Forbrugeren kan se produktets oprindelse. Investoren kan se det reelle potentiale. Politikerne kan se, hvordan beslutninger påvirker lokalsamfund og landområder.',
     'Vores mission er enkel: at styrke forbindelserne og forenkle systemet. Agrihub er landbrugets stemme, og den vil nu blive hørt.',
-    'Sammen kan vi ikke bare fremme bæredygtigt landbrug – vi kan skrive historie.'
+    'Sammen kan vi ikke bare fremme bæredygtigt landbrug – vi kan skrive historie.'',
   ],
 
   // MARKET
