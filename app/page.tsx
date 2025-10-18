@@ -1,5 +1,6 @@
 "use client";
 
+import ContactForm from "./components/ContactForm";
 import { useState } from "react";
 import Image from "next/image";
 import {
