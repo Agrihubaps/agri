@@ -403,6 +403,9 @@ export default function Page() {
           <p className="mt-4 text-neutral-600 text-sm">agrihubaps@agrihubfarm.dk • CVR 45519058 • Sønderborg, DK</p>
         </div>
       </section>
+      
+{/* Contact Form Section */}
+<ContactForm />
 
       {/* Footer */}
       <footer className="py-10 border-t border-neutral-200">
