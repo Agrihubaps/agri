@@ -253,15 +253,11 @@ export default function Page() {
       {/* TEAM — фото владельцев + большие карточки */}
       <Section id="team" title={t.team_title} subtitle={t.team_sub}>
         <div className="card overflow-hidden p-0">
-          <Image
-            src="/owners.jpg" // убедись, что файл лежит в /public/owners.jpg
-            alt="Stiftere af AgriHub — Rune Larssen Elsborg og Denis Antoshyn"
-            width={1600}
-            height={1200}
-            className="w-full h-auto object-cover"
-            priority
-          />
-          <div className="px-6 py-4 text-sm opacity-80">
+         <img 
+  src="/owner.jpeg" 
+  alt="Owner" 
+  className="mx-auto w-40 h-40 rounded-full object-cover shadow-lg"
+/>
             Rune Larssen Elsborg &amp; Denis Antoshyn — stiftere og ejere af AgriHub ApS.
           </div>
         </div>
