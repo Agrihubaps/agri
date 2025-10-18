@@ -14,10 +14,9 @@ const base = {
   cta_1: 'Oplev visionen',
   cta_2: 'Bliv en del af AgriHub',
 
-  // MISSION — отдельный блок сразу после Hero
+  // MISSION 
   mission_title: 'Vores mission',
-  mission_sub:
-    'Vi bygger bro mellem tradition og innovation – med respekt for jorden og menneskene bag.',
+ 
   mission_long: [
     'Det er ikke vigtigt, hvem du ser. Det vigtige er, hvem der ser dig.',
     'Hver dag arbejder landmænd hårdt, men ofte bliver deres indsats usynlig. Produkterne er svære at finde, og udfordringerne er svære at få øje på. Agrihub ændrer dette.',
@@ -95,13 +94,11 @@ const base = {
   team: [
     {
       n: 'Rune Larssen Elsborg – Administrerende Direktør',
-      b:
         'Rune er grundlægger af AgriHub ApS og indgår som medstifter og har fokus på daglig drift, forretningsudvikling og partnerskaber.\n' +
         'Sidste 6 års erfaring i en stor agrovirksomhed med ansvar for tekniske projekter på tværs af Skandinavien og omfattende kommunikation inden for landbrugssektoren. Praktisk erfaring med ledelse af store teams, baseret på 20 års erfaring i lederstillinger på olieplatforme.'
     },
     {
       n: 'Denis Antoshyn – Direktør',
-      b:
         'Denis er grundlægger af AgriHub ApS og har det overordnede ansvar for virksomhedens strategi, ledelse og udvikling.\n' +
         'Over 15 års erfaring i landbrugssektoren med en universitetsuddannelse inden for landbrug og fire års arbejde i en agrovirksomhed specialiseret i landbrugsudstyr.'
     }
