@@ -3,10 +3,7 @@
 import ContactForm from "./components/ContactForm";
 import { useState } from "react";
 import Image from "next/image";
-import {
-  ArrowRight, Sprout, Factory, Users2, Library,
-  Handshake, Mail, Globe, Linkedin
-} from "lucide-react";
+
 
 /* ---------- UI primitives (без shadcn) ---------- */
 function Button({ className = "", variant, children, ...props }: any) {
