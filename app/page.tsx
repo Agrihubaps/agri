@@ -27,7 +27,7 @@ const base = {
     'Sammen kan vi ikke bare fremme bæredygtigt landbrug – vi kan skrive historie.'
   ],
 
-  // UDFORDRINGEN
+  // UDFORDRINGEN — добавлено про голос Скандинавии и объединение фермеров
   problem_title: 'Udfordringen',
   problem_sub:
     'Landbruget står over for digital transformation. Vi gør den menneskelig, effektiv og værdiskabende. AgriHub bliver landbrugets stemme for hele Skandinavien – og kan blive de første, der samler alle skandinaviske landmænd.',
@@ -89,7 +89,7 @@ const base = {
   market_card_b:
     'Digitalisering af landbruget er ikke fremtiden – den sker nu. AgriHub forbinder de mennesker og data, der gør det muligt.',
 
-  // TEAM — большие карточки
+  // TEAM — фото + большие карточки, партнёрский блок удалён
   team_title: 'Menneskene bag AgriHub',
   team_sub: 'Erfaring, passion og et klart mål: at gøre landbruget mere forbundet og bæredygtigt.',
   team: [
@@ -120,7 +120,7 @@ const base = {
     'Formen er ikke forbundet endnu. Tilføj NEXT_PUBLIC_CONTACT_ENDPOINT i Vercel → Settings → Environment Variables.'
 }
 
-// Весь контент одинаков для da/en (всё на датском)
+// контент одинаков для da/en (всё на датском)
 const copy = { da: base, en: base }
 
 export default function Page() {
@@ -153,7 +153,6 @@ export default function Page() {
             <p className="text-sm uppercase tracking-widest opacity-70 mb-2">{t.hero_kicker}</p>
             <h1 className="mb-4">{t.hero_title}</h1>
             <p className="opacity-90 mb-8 max-w-2xl">{t.hero_body}</p>
-
             <div className="flex gap-4">
               <a
                 href="#solution"
@@ -254,8 +253,22 @@ export default function Page() {
         </div>
       </Section>
 
-      {/* TEAM — большие карточки */}
+      {/* TEAM — фото владельцев + большие карточки */}
       <Section id="team" title={t.team_title} subtitle={t.team_sub}>
+        <div className="card overflow-hidden p-0">
+          <Image
+            src="/owners.jpg" // убедись, что файл лежит в /public/owners.jpg
+            alt="Stiftere af AgriHub — Rune Larssen Elsborg og Denis Antoshyn"
+            width={1600}
+            height={1200}
+            className="w-full h-auto object-cover"
+            priority
+          />
+          <div className="px-6 py-4 text-sm opacity-80">
+            Rune Larssen Elsborg &amp; Denis Antoshyn — stiftere og ejere af AgriHub ApS.
+          </div>
+        </div>
+
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Rune */}
           <article className="card p-8 md:p-10 overflow-visible">
