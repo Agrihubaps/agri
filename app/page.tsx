@@ -3,6 +3,8 @@
 import ContactForm from "./components/ContactForm";
 import { useState } from "react";
 import Image from "next/image";
+import { ArrowRight, Sprout, Factory, Users2, Library, Handshake, Mail, Linkedin, Globe } from "./icons";
+
 
 /* ---------- Inline Icons (без lucide-react) ---------- */
 type IconProps = React.SVGProps<SVGSVGElement> & { size?: number | string };
